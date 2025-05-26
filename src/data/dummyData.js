@@ -1,20 +1,16 @@
-export const dummySuppliers = [
-  {
-    id: 1,
-    name: "James Sir",
-    contact: "james@gmail.com.com",
-    phone: "0700 001 001"
-  },
-  {
-    id: 2,
-    name: "Global Supply Co.",
-    contact: "global@gmail.com",
-    phone: "0798 890 900"
-  },
-  {
-    id: 3,
-    name: "LogiTrack Ltd.",
-    contact: "contact@logitrack.com",
-    phone: "0789 670 909"
-  }
-];
+// export const dummySuppliers = [
+//   {
+//     id: '1',
+//     name: 'Fresh Farms Ltd',
+//     contact: 'John Doe',
+//     phone: '123-456-7890',
+//     suppliedItems: ['Tomatoes', 'Cabbage', 'Carrots'], // 🆕
+//   },
+//   {
+//     id: '2',
+//     name: 'Green Harvest',
+//     contact: 'Jane Smith',
+//     phone: '987-654-3210',
+//     suppliedItems: ['Potatoes', 'Onions'], // 🆕
+//   },
+// ];
