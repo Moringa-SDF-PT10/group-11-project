@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { dummySuppliers } from '../data/dummyData';
+import SupplierCard from '../components/SupplierCard';
 
 const SuppliersPage = () => {
   const [suppliers, setSuppliers] = useState([]);
@@ -12,14 +13,13 @@ const SuppliersPage = () => {
   return (
     <div>
       <h1>Suppliers</h1>
-      <ul>
+      <ul style={{ listStyle: 'none', padding: 0 }}>
         {suppliers.map((supplier) => (
-          <li key={supplier.id}>
-            <strong>{supplier.name}</strong><br />
-            Contact: {supplier.contact}<br />
-            Phone: {supplier.phone}
-          </li>
+             <li key={supplier.id}>
+               <SupplierCard supplier={supplier} />
+            </li>
         ))}
+        
       </ul>
     </div>
   );
