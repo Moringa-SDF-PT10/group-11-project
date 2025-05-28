@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserContext"
-
+import "../App.css"
 function LoginPage(){
 const [username, setUsername] = useState("")
 const [password, setPassword] = useState("")
@@ -17,6 +17,7 @@ const  handleSubmit =  (e) => {
 
 
 return (
+    <div className="login-card">
     <form onSubmit={handleSubmit}>
         <h2>Login</h2>
         <input
@@ -38,6 +39,7 @@ return (
         </select>
         <button type="submit">Login</button>
     </form>
+    </div>
 )
 }
 
