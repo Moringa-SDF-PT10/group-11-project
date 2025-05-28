@@ -4,7 +4,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import {useUser} from "./context/UserContext";
 
 import LoginPage from "./pages/LoginPage";
-import DashBoardPage from "./pages/DashBoardPage";
+import DashboardPage  from "./pages/DashboardPage";
 
 function App() {
     const { user } =useUser()
@@ -18,11 +18,14 @@ function App() {
             path="/dashboard"
             element={
                 <ProtectedRoute>
-                    <DashBoardPage />
+                    <DashboardPage />
                 </ProtectedRoute>
             }
             />
+            <Route path="*" element={<Navigate to={user ? "/dashboard" : "/login"} />} />
          </Routes> 
         </>
     )
 }
+
+export default App;

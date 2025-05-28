@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useUser } from "./context/UserContext";
+import { useUser } from "../context/UserContext";
 
 function Navbar() {
     const {user, logout} = useUser()
@@ -17,7 +17,7 @@ function Navbar() {
             <Link to="/dashboard">Dashboard</Link>
             {user.role === "admin" && <Link>Users</Link>}
             <span>
-            {user.username} ({user.role}) <button onCLick={handleLogout}>Logout</button>
+            {user.username} ({user.role}) <button onClick={handleLogout}>Logout</button>
             </span>
             </>
             )}
