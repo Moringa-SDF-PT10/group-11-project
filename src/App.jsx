@@ -1,5 +1,5 @@
 import React from "react";
-import InventoryPage from "./components/inventory/InventoryPage";
+import InventoryPage from "./pages/InventoryPage";
 
 function App() {
   return (
