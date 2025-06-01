@@ -1,4 +1,5 @@
-import {Routes, Route, Navigate} from "react-router-dom";
+<<<<<<< HEAD
+import {Routes, Roue, Navigate} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import {useUser} from "./context/UserContext";
