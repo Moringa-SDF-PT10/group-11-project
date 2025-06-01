@@ -3,12 +3,22 @@ import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import {useUser} from "./context/UserContext";
 import "./App.css"
-
+import WarehouseShipmentSystem from "./components/shipmentdummyLogic";
+import ShipmentUI from "./components/shipmentUI";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage  from "./pages/DashboardPages";
 
 function App() {
-    const { user } =useUser()
+    const { user, loading } =useUser()
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+            </div>
+        );
+    }
+
 
     return (
         <>
@@ -24,6 +34,25 @@ function App() {
                 </ProtectedRoute>
             }
             /> 
+            <Route
+                    path="/shipments"
+                    element={
+                        <ProtectedRoute user={user}>
+                            <ShipmentUI />
+                        </ProtectedRoute>
+                    }
+                />
+
+             <Route
+                    path="/dummylogic"
+                    element={
+                        <ProtectedRoute user={user}>
+                            <WarehouseShipmentSystem />
+                        </ProtectedRoute>
+                    }
+                />   
+
+
             {<Route path="*" element={<Navigate to={user ? "/dashboard" : "/login"} />} />}
          </Routes> 
          </div>
