@@ -1,21 +1,19 @@
-dashboard-and-stats
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {useUser} from "./context/UserContext";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { useUser } from "./context/UserContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 
-
+// Pages imports
 import LoginPage from "./pages/LoginPage";
-import DashboardPage  from "./pages/DashboardPages";
+import DashboardPage from "./pages/DashboardPage";
 import InventoryPage from "./pages/InventoryPage";
 import AddItemPage from "./pages/AddItemPage";
 import EditItemPage from "./pages/EditItemPage";
+import ShipmentsPage from "./pages/ShipmentsPage";
+import SuppliersPage from "./pages/SuppliersPage";
 
-import "./App.css"
-
-
-
+import "./App.css";
 
 function App() {
   const { user } = useUser();
@@ -61,8 +59,30 @@ function App() {
           }
         />
         <Route
+          path="/shipments"
+          element={
+            <ProtectedRoute>
+              <ShipmentsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/suppliers"
+          element={
+            <ProtectedRoute>
+              <SuppliersPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="*"
-          element={<div className="p-6 text-center text-red-500 text-xl">404 Page Not Found</div>}
+          element={
+            user ? (
+              <Navigate to="/dashboard" />
+            ) : (
+              <div className="p-6 text-center text-red-500 text-xl">404 Page Not Found</div>
+            )
+          }
         />
       </Routes>
     </Router>
@@ -70,4 +90,3 @@ function App() {
 }
 
 export default App;
-

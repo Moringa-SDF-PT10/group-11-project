@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const InventoryTable = () => {
+const InventoryTable = ({ onDeleteItem, onUpdateItem }) => {
   const [items, setItems] = useState([]);
 
   const fetchItems = () => {
@@ -21,6 +21,7 @@ const InventoryTable = () => {
       method: "DELETE",
     });
 
+    if (onDeleteItem) onDeleteItem(id);
     fetchItems();
   };
 
@@ -33,6 +34,7 @@ const InventoryTable = () => {
             <th className="border px-4 py-2">ID</th>
             <th className="border px-4 py-2">Name</th>
             <th className="border px-4 py-2">Stock</th>
+            <th className="border px-4 py-2">Category</th>
             <th className="border px-4 py-2">Last Updated</th>
             <th className="border px-4 py-2">Actions</th>
           </tr>
@@ -42,8 +44,9 @@ const InventoryTable = () => {
             <tr key={item.id}>
               <td className="border px-4 py-2">{item.id}</td>
               <td className="border px-4 py-2">{item.name}</td>
-              <td className="border px-4 py-2">{item.stock}</td>
-              <td className="border px-4 py-2">{item.lastUpdated}</td>
+              <td className="border px-4 py-2">{item.stock ?? item.quantity}</td>
+              <td className="border px-4 py-2">{item.category || "—"}</td>
+              <td className="border px-4 py-2">{item.lastUpdated || "—"}</td>
               <td className="border px-4 py-2">
                 <Link
                   to={`/edit-item/${item.id}`}
