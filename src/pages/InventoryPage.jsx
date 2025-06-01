@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import InventoryTable from "../components/InventoryTable"
+import InventoryTable from "../components/InventoryTable";
 import ItemForm from "../components/ItemForm";
 
 const initialInventory = [
@@ -10,29 +10,56 @@ const initialInventory = [
 
 function InventoryPage() {
   const [inventory, setInventory] = useState(initialInventory);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-  function handleAddItem(newItem) {
-    setInventory((prevItems) => [...prevItems, newItem]);
-  }
+  const handleAddItem = (newItem) => {
+    setInventory((prev) => [...prev, newItem]);
+  };
 
-  function handleDeleteItem(id) {
-    setInventory((prevItems) => prevItems.filter((item) => item.id !== id));
-  }
+  const handleDeleteItem = (id) => {
+    setInventory((prev) => prev.filter((item) => item.id !== id));
+  };
 
-  function handleUpdateItem(id, updatedFields) {
-    setInventory((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, ...updatedFields } : item
-      )
+  const handleUpdateItem = (id, updatedFields) => {
+    setInventory((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, ...updatedFields } : item))
     );
-  }
+  };
+
+  const filteredItems = inventory.filter((item) => {
+    const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === "All" || item.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <section className="inventory-page">
       <h2>Inventory Management</h2>
+
       <ItemForm onAddItem={handleAddItem} />
+
+      {/* Filter/Search Controls Inline */}
+      <div className="search-filter-controls">
+        <input
+          type="text"
+          placeholder="Search items..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <select
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
+          <option value="All">All Categories</option>
+          <option value="Stationery">Stationery</option>
+          <option value="Electronics">Electronics</option>
+          <option value="General">General</option>
+        </select>
+      </div>
+
       <InventoryTable
-        items={inventory}
+        items={filteredItems}
         onDeleteItem={handleDeleteItem}
         onUpdateItem={handleUpdateItem}
       />

@@ -1,7 +1,7 @@
 import React from "react";
 import InventoryItem from "./InventoryItem";
 
-function InventoryList({ items, onDeleteItem, onUpdateItem }) {
+function InventoryTable({ items, onDeleteItem, onUpdateItem }) {
   return (
     <div className="inventory-list">
       {items.map((item) => (
@@ -19,4 +19,4 @@ function InventoryList({ items, onDeleteItem, onUpdateItem }) {
   );
 }
 
-export default InventoryList;
+export default InventoryTable;

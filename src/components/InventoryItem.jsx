@@ -7,8 +7,7 @@ function InventoryItem({ id, name, quantity, category, onDeleteItem, onUpdateIte
   const [editedCategory, setEditedCategory] = useState(category);
 
   function handleSave() {
-    onUpdateItem({
-      id,
+    onUpdateItem(id, {
       name: editedName,
       quantity: parseInt(editedQuantity),
       category: editedCategory,

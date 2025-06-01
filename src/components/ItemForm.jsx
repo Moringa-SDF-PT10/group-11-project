@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 
-function AddItemForm({ onAddItem }) {
+function ItemForm({ onAddItem }) {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [category, setCategory] = useState("General");
 
   function handleSubmit(e) {
     e.preventDefault();
-
     const newItem = {
-      id: Date.now(), 
+      id: Date.now(),
       name,
       quantity: parseInt(quantity),
       category,
     };
-
     onAddItem(newItem);
     setName("");
     setQuantity("");
@@ -48,4 +46,4 @@ function AddItemForm({ onAddItem }) {
   );
 }
 
-export default AddItemForm;
+export default ItemForm;
