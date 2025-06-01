@@ -2,54 +2,40 @@ import React, { useState } from "react";
 import InventoryTable from "../components/InventoryTable";
 import ItemForm from "../components/ItemForm";
 
-const initialInventory = [
-  { id: 1, name: "Paper", quantity: 50, category: "Stationery" },
-  { id: 2, name: "Staplers", quantity: 15, category: "Stationery" },
-  { id: 3, name: "Printer Toner", quantity: 5, category: "Electronics" },
-];
-
 function InventoryPage() {
-  const [inventory, setInventory] = useState(initialInventory);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const handleAddItem = (newItem) => {
-    setInventory((prev) => [newItem, ...prev]);
-  };
-
+  // Optional: Hook this up to a filtering prop if your InventoryTable supports it later
   const handleDeleteItem = (id) => {
-    setInventory((prev) => prev.filter((item) => item.id !== id));
+    // This is handled internally in InventoryTable's fetch logic
+    console.log("Deleted item with ID:", id);
   };
 
   const handleUpdateItem = (id, updatedFields) => {
-    setInventory((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, ...updatedFields } : item))
-    );
+    // Reserved for future updates
+    console.log("Updated item:", id, updatedFields);
   };
 
-  const filteredItems = inventory.filter((item) => {
-    const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === "All" || item.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
-
   return (
-    <section className="inventory-page">
-      <h2>Inventory Management</h2>
+    <section className="p-6 inventory-page">
+      <h2 className="text-2xl font-semibold mb-4">Inventory Management</h2>
 
-      <ItemForm onAddItem={handleAddItem} />
+      <ItemForm onAddItem={() => window.location.reload()} />
 
-      {/* Filter/Search Controls Inline */}
-      <div className="search-filter-controls">
+      {/* Search and Filter Controls */}
+      <div className="flex gap-4 mb-6">
         <input
           type="text"
           placeholder="Search items..."
+          className="border px-3 py-2 rounded w-full max-w-md"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
+          className="border px-3 py-2 rounded"
         >
           <option value="All">All Categories</option>
           <option value="Stationery">Stationery</option>
@@ -59,7 +45,6 @@ function InventoryPage() {
       </div>
 
       <InventoryTable
-        items={filteredItems}
         onDeleteItem={handleDeleteItem}
         onUpdateItem={handleUpdateItem}
       />
