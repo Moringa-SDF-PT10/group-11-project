@@ -4,8 +4,14 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import {useUser} from "./context/UserContext";
 import "./App.css"
 
+// Pages imports
 import LoginPage from "./pages/LoginPage";
-import DashboardPage  from "./pages/DashboardPages";
+import DashboardPage  from "./pages/DashboardPage";
+import InventoryPage from "./pages/InventoryPage"
+import AddItemPage  from "./pages/AddItemPage";
+import EditItemPage  from "./pages/EditItemPage";
+import ShipmentsPage  from "./pages/ShipmentsPage";
+import SuppliersPage  from "./pages/SuppliersPage";
 
 function App() {
     const { user } =useUser()
@@ -21,6 +27,46 @@ function App() {
             element={
                 <ProtectedRoute>
                     <DashboardPage />
+                </ProtectedRoute>
+            }
+            /> 
+             <Route
+            path="/inventory"
+            element={
+                <ProtectedRoute>
+                    <InventoryPage />
+                </ProtectedRoute>
+            }
+            /> 
+             <Route
+            path="/additem"
+            element={
+                <ProtectedRoute>
+                    <AddItemPage />
+                </ProtectedRoute>
+            }
+            /> 
+             <Route
+            path="/edititem"
+            element={
+                <ProtectedRoute>
+                    <EditItemPage />
+                </ProtectedRoute>
+            }
+            /> 
+             <Route
+            path="/shipments"
+            element={
+                <ProtectedRoute>
+                    <ShipmentsPage />
+                </ProtectedRoute>
+            }
+            /> 
+             <Route
+            path="/suppliers"
+            element={
+                <ProtectedRoute>
+                    <SuppliersPage />
                 </ProtectedRoute>
             }
             /> 
