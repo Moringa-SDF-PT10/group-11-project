@@ -1,15 +1,16 @@
 import React from "react";
 import InventoryItem from "./InventoryItem";
 
-function InventoryList({ items = [] }) {
+function InventoryList({ items, onDeleteItem }) {
   return (
-    <div>
-      <h2>Inventory Items</h2>
-      <ul>
-        {items.map((item) => (
-          <InventoryItem key={item.id} item={item} />
-        ))}
-      </ul>
+    <div className="inventory-list">
+      {items.map((item) => (
+        <InventoryItem
+          key={item.id}
+          {...item}
+          onDelete={() => onDeleteItem(item.id)}
+        />
+      ))}
     </div>
   );
 }

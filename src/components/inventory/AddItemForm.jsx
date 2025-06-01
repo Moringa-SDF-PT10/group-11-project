@@ -1,4 +1,3 @@
-// src/components/inventory/AddItemForm.jsx
 import React, { useState } from "react";
 
 function AddItemForm({ onAddItem }) {
@@ -10,7 +9,7 @@ function AddItemForm({ onAddItem }) {
     e.preventDefault();
 
     const newItem = {
-      id: Date.now(), // temporary ID, replace with uuid() if needed
+      id: Date.now(), 
       name,
       quantity: parseInt(quantity),
       category,
