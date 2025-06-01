@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import {useUser} from "./context/UserContext";
 import "./App.css"
-import WarehouseShipmentSystem from "./components/shipmentdummyLogic";
 import ShipmentUI from "./components/shipmentUI";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage  from "./pages/DashboardPages";
