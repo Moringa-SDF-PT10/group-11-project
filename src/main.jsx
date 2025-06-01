@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import  UserProvider  from "./context/UserContext";
 import './index.css'
 import App from './App.jsx'
-import WarehouseShipmentSystem from './assets/ShipmentLogic.jsx'
+import WarehouseShipmentSystem from './components/shipmentdummyLogic.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
