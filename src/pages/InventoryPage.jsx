@@ -14,7 +14,7 @@ function InventoryPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const handleAddItem = (newItem) => {
-    setInventory((prev) => [...prev, newItem]);
+    setInventory((prev) => [newItem, ...prev]);
   };
 
   const handleDeleteItem = (id) => {
