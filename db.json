@@ -25,5 +25,9 @@
         "TElele"
       ]
     }
+  ],
+  "items": [
+    { "id": 1, "name": "Widget A", "stock": 5, "lastUpdated": "2025-05-28" },
+    { "id": 2, "name": "Widget B", "stock": 0, "lastUpdated": "2025-05-27" }
   ]
 }
