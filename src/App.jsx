@@ -1,26 +1,27 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {  Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import { useUser } from "./context/UserContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
+import "./App.css";
 
 // Pages imports
 import LoginPage from "./pages/LoginPage";
-import DashboardPage from "./pages/DashboardPage";
+import DashboardPage from "./pages/Dashboard";
 import InventoryPage from "./pages/InventoryPage";
-import AddItemPage from "./pages/AddItemPage";
+import AddItemPage from "./pages/AddItemsPage";
 import EditItemPage from "./pages/EditItemPage";
-import ShipmentsPage from "./pages/ShipmentsPage";
+// import ShipmentsPage from "./pages/ShipmentsPage";
 import SuppliersPage from "./pages/SuppliersPage";
 
-import "./App.css";
+
 
 function App() {
   const { user } = useUser();
 
   return (
-    <Router>
-      {user && <Navbar />}
+    <BrowserRouter>
+    {user && <Navbar />}
       <Routes>
         <Route
           path="/login"
@@ -58,14 +59,14 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route
+        {/* <Route
           path="/shipments"
           element={
             <ProtectedRoute>
               <ShipmentsPage />
             </ProtectedRoute>
           }
-        />
+        /> */}
         <Route
           path="/suppliers"
           element={
@@ -73,7 +74,7 @@ function App() {
               <SuppliersPage />
             </ProtectedRoute>
           }
-        />
+        /> 
         <Route
           path="*"
           element={
@@ -85,7 +86,7 @@ function App() {
           }
         />
       </Routes>
-    </Router>
+   </BrowserRouter>
   );
 }
 
