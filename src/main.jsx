@@ -11,8 +11,10 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <UserProvider>
+        <div>
         <App />
         <ShipmentUI />
+        </div>
       </UserProvider>
     </BrowserRouter>
   </StrictMode>

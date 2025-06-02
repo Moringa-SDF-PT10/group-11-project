@@ -1,0 +1,214 @@
+/* SuppliersPage.css */
+
+:root {
+  --primary-color: #2f80ed;
+  --secondary-color: #56ccf2;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+  --bg-light: #f9f9f9;
+  --text-color: #333;
+  --font-family: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+}
+
+.suppliers-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.suppliers-container h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+/* SupplierForm styles */
+.supplier-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 2rem;
+  align-items: flex-start;
+}
+
+.supplier-form input[type="text"] {
+  flex: 1 1 250px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1.8px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.supplier-form input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 6px var(--primary-color);
+}
+
+.supplied-items-input-group {
+  display: flex;
+  gap: 8px;
+  flex: 1 1 300px;
+}
+
+.supplier-form button.add-item-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.supplier-form button.add-item-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.supplied-items-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 8px;
+  max-width: 100%;
+}
+
+.supplied-items-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.supplied-items-list li button.remove-item-btn {
+  background: var(--danger-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 20px;
+  text-align: center;
+  padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+.supplied-items-list li button.remove-item-btn:hover {
+  background: #b02a37;
+}
+
+.supplier-form button.submit-btn {
+  flex: 1 1 100%;
+  background-color: var(--success-color);
+  color: white;
+  border: none;
+  padding: 14px 0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.supplier-form button.submit-btn:hover {
+  background-color: #218838;
+}
+
+/* SupplierCard styles */
+.supplier-card {
+  background: var(--bg-light);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.supplier-card:hover {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.supplier-card h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.supplier-card p {
+  margin: 6px 0;
+  font-size: 1rem;
+}
+
+.supplied-items-title {
+  font-weight: 600;
+  margin-top: 12px;
+  color: var(--secondary-color);
+}
+
+.supplied-items-list-card {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 6px;
+  color: var(--text-color);
+}
+
+/* Buttons on the card */
+.button-group {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.button-edit {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-edit:hover {
+  background-color: var(--secondary-color);
+}
+
+.button-delete {
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-delete:hover {
+  background-color: #b02a37;
+}
+
+/* Responsive */
+@media (max-width: 650px) {
+  .supplier-form {
+    flex-direction: column;
+  }
+
+  .supplied-items-input-group {
+    flex-direction: column;
+  }
+}
