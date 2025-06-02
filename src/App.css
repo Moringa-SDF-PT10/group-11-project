@@ -192,7 +192,7 @@ input[type="text"],
 input[type="number"] {
   border: 1px solid #c9d6e3;
   padding: 0.5rem 0.75rem;
-  width: 100%;
+  width: auto;
   border-radius: 0.5rem;
   font-size: 1rem;
   outline: none;
@@ -237,3 +237,141 @@ button:hover,
   }
 }
 
+inventory-page {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(25, 118, 210, 0.08);
+  max-width: 900px;
+  margin: 2rem auto 2.5rem auto;
+  padding: 2rem 2.5rem;
+}
+
+@media (max-width: 700px) {
+  .inventory-page {
+    padding: 1rem 0.5rem;
+    max-width: 99vw;
+  }
+}
+
+/* Typography utilities */
+.text-2xl {
+  font-size: 2rem;
+  line-height: 2.2rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+/* Flex utility for search/filter bar */
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+/* Form controls */
+input[type="text"],
+select {
+  border: 1px solid #c9d6e3;
+  background: #fafdff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.18s;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #1976d2;
+  background: #f0f7ff;
+}
+
+input[type="text"].max-w-md {
+  max-width: 400px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* Utility classes for consistency */
+.p-6 {
+  padding: 1.5rem;
+}
+
+/* Table utilities (for InventoryTable) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: #fafdff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(25, 118, 210, 0.04);
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+th {
+  background: #e3f2fd;
+  font-weight: 600;
+  color: #1565b0;
+}
+
+tr:nth-child(even) {
+  background: #f4f9ff;
+}
+
+tr:hover td {
+  background: #e3f2fd;
+}
+
+/* Button styles (general/global) */
+button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.45rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.16s;
+}
+
+button:hover,
+button:focus {
+  background: #1565b0;
+}
+
+/* Responsive adjustments for table */
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  th, td {
+    padding: 0.7rem 0.5rem;
+  }
+
+  th {
+    background: #e3f2fd;
+  }
+}
