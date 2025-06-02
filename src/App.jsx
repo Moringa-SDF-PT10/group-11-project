@@ -7,12 +7,12 @@ import "./App.css";
 
 // Pages imports
 import LoginPage from "./pages/LoginPage";
-import DashboardPage from "./pages/DashboardPage";
+import DashboardPage from "./pages/Dashboard";
 import InventoryPage from "./pages/InventoryPage";
 import AddItemPage from "./pages/AddItemsPage";
 import EditItemPage from "./pages/EditItemPage";
-import ShipmentsPage from "./pages/ShipmentsPage";
-import SuppliersPage from "./pages/SuppliersPage";
+// import ShipmentsPage from "./pages/ShipmentsPage";
+// import SuppliersPage from "./pages/SuppliersPage";
 
 
 
@@ -59,7 +59,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route
+        {/* <Route
           path="/shipments"
           element={
             <ProtectedRoute>
@@ -74,7 +74,7 @@ function App() {
               <SuppliersPage />
             </ProtectedRoute>
           }
-        />
+        /> */}
         <Route
           path="*"
           element={

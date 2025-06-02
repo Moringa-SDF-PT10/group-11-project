@@ -147,3 +147,93 @@ nav button:focus {
   }
 }
 
+
+div.p-6 {
+  padding: 1.5rem;
+}
+
+div.max-w-md {
+
+  max-width: 28rem;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.07);
+  gap: 10px;
+}
+
+/* Typography utilities */
+.text-xl {
+  font-size: 1.5rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+/* Form utilities */
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.block {
+  display: block;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #c9d6e3;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.18s;
+  background: #fafdff;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #1976d2;
+  background: #f0f7ff;
+}
+
+/* Button utility */
+button,
+.bg-blue-600 {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.55rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+button:hover,
+.bg-blue-600:hover {
+  background: #1565b0;
+}
+
+/* Responsive: shrink container on small screens */
+@media (max-width: 600px) {
+  .max-w-md {
+    max-width: 95vw;
+    padding: 1rem;
+  }
+  .p-6 {
+    padding: 1rem;
+  }
+}
+
