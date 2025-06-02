@@ -2,23 +2,28 @@ import React from "react";
 import {  Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import { useUser } from "./context/UserContext";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Navbar from "./components/Navbar";
+import "./App.css"
+import ShipmentUI from "./components/shipmentUI";
+import "./App.css";
+import LoginPage from "./pages/LoginPage";
+// import DashboardPage from "./pages/DashboardPage";
+
+
 import "./App.css";
 
-// Pages imports
-import LoginPage from "./pages/LoginPage";
-import DashboardPage from "./pages/Dashboard";
-import InventoryPage from "./pages/InventoryPage";
-import AddItemPage from "./pages/AddItemsPage";
-import EditItemPage from "./pages/EditItemPage";
-// import ShipmentsPage from "./pages/ShipmentsPage";
-import SuppliersPage from "./pages/SuppliersPage";
-
-
-
 function App() {
-  const { user } = useUser();
+    const { user, loading } =useUser()
 
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+            </div>
+        );
+    }
+
+
+    
   return (
     <BrowserRouter>
     {user && <Navbar />}
@@ -59,14 +64,16 @@ function App() {
             </ProtectedRoute>
           }
         />
-        {/* <Route
-          path="/shipments"
-          element={
-            <ProtectedRoute>
-              <ShipmentsPage />
-            </ProtectedRoute>
-          }
-        /> */}
+        <Route
+                    path="/shipments"
+                    element={
+                        <ProtectedRoute user={user}>
+                            <ShipmentUI />
+                        </ProtectedRoute>
+                    }
+                />
+
+       
         <Route
           path="/suppliers"
           element={
