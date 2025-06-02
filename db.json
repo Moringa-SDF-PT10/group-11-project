@@ -1,4 +1,31 @@
 {
+  "suppliers": [
+    {
+      "id": "2",
+      "name": "Green Valley Goods",
+      "contact": "Jane Smith",
+      "phone": "0798765432",
+      "suppliedItems": [
+        "Cows",
+        "Fire Wood",
+        "Rice",
+        "Anything else",
+        "cale"
+      ]
+    },
+    {
+      "id": "d4cb20f9-eb13-4940-b061-b5d263c317e0",
+      "name": "Profplanet",
+      "contact": "Simon Warui",
+      "phone": "0798765432",
+      "suppliedItems": [
+        "Onion",
+        "Kales",
+        "Cabbage",
+        "TElele"
+      ]
+    }
+  ],
   "items": [
     { "id": 1, "name": "Widget A", "stock": 5, "lastUpdated": "2025-05-28" },
     { "id": 2, "name": "Widget B", "stock": 0, "lastUpdated": "2025-05-27" }

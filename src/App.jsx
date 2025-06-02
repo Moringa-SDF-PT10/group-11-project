@@ -12,7 +12,7 @@ import InventoryPage from "./pages/InventoryPage";
 import AddItemPage from "./pages/AddItemsPage";
 import EditItemPage from "./pages/EditItemPage";
 // import ShipmentsPage from "./pages/ShipmentsPage";
-// import SuppliersPage from "./pages/SuppliersPage";
+import SuppliersPage from "./pages/SuppliersPage";
 
 
 
@@ -66,7 +66,7 @@ function App() {
               <ShipmentsPage />
             </ProtectedRoute>
           }
-        />
+        /> */}
         <Route
           path="/suppliers"
           element={
@@ -74,7 +74,7 @@ function App() {
               <SuppliersPage />
             </ProtectedRoute>
           }
-        /> */}
+        /> 
         <Route
           path="*"
           element={
