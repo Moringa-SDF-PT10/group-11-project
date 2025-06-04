@@ -6,7 +6,12 @@ import "./App.css"
 import ShipmentUI from "./components/shipmentUI";
 import "./App.css";
 import LoginPage from "./pages/LoginPage";
-// import DashboardPage from "./pages/DashboardPage";
+import SuppliersPage from "./pages/SuppliersPage";
+import Navbar from "./components/Navbar";
+import DashboardPage from "./pages/DashboardPage";
+import InventoryPage from "./pages/InventoryPage";
+import EditItemPage from "./pages/EditItemPage";
+import AddItemPage from "./pages/AddItemsPage";
 
 
 import "./App.css";
@@ -28,6 +33,10 @@ function App() {
     <BrowserRouter>
     {user && <Navbar />}
       <Routes>
+         <Route
+           path="/"
+           element={<Navigate to={user ? "/dashboard" : "/login"} />}
+         />
         <Route
           path="/login"
           element={user ? <Navigate to="/dashboard" /> : <LoginPage />}

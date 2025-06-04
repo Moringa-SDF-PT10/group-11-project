@@ -19,6 +19,8 @@ function Navbar() {
             <Link to="/inventory">Inventory</Link>
             <Link to="/add-item">Add Item</Link>
             <Link to="/edit-item/:id">Edit Item</Link>
+            <Link to="/suppliers">Suppliers</Link>
+            <Link to="shipments">Shipments</Link>
             {user.role === "admin" && <Link>Users</Link>}
             <span>
             {user.username} ({user.role}) <button onClick={handleLogout}>Logout</button>
