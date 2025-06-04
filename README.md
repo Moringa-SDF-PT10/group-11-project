@@ -30,7 +30,7 @@ A web-based Warehouse Management System designed to streamline and optimize inve
 
 ### App Access
 
-- Visit https://group-11warehouse-management-system.netlify.app/ in your browser .
+- Visit https://app.netlify.com/projects/group-11-warehousemanagementsystem in your browser .
 
 ### Prerequisites 
 
